@@ -1,0 +1,97 @@
+<div class="outer">
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-2 col-lg-5 com-md-7 offset-lg-4 offset-md-3">
+                <div class="panel border bg-white">
+                    <div class="panel-heading">
+                        <h3 class="pt-3 font-weight-bold">Register</h3>
+                    </div>
+                    <div class="panel-body p-3">
+                        <form [formGroup]="registerForm">
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <span class="fa fa-user p-2"></span>
+                                    <input formControlName="Name" type="text" placeholder="First Name">
+                                </div>
+                            </div>
+                            <small
+                                *ngIf="registerForm.controls['Name'].dirty && registerForm.hasError('required','Name')"
+                                class="text-danger">*First Name is required</small>
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <span class="fa fa-user p-2"></span>
+                                    <input formControlName="Surname" type="text" placeholder="Last Name">
+                                </div>
+                            </div>
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <span class="fa fa-user p-2"></span>
+                                    <input formControlName="EmailAddress" type="text" placeholder="Email Address">
+                                </div>
+                            </div>
+                            <small
+                                *ngIf="registerForm.controls['EmailAddress'].dirty && registerForm.hasError('required','EmailAddress')"
+                                class="text-danger">*Email Address is required</small>
+                            <small
+                                *ngIf="registerForm.controls['Surname'].dirty && registerForm.hasError('required','Surname')"
+                                class="text-danger">*Last Name is required</small>
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <span class="fa fa-user p-2"></span>
+                                    <input formControlName="Username" type="text" placeholder="Username">
+                                </div>
+                            </div>
+                            <small
+                                *ngIf="registerForm.controls['Username'].dirty && registerForm.hasError('required','Username')"
+                                class="text-danger">*Username is required</small>
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <span class="fa fa-user p-2"></span>
+                                    <input formControlName="PhoneNumber" type="text" placeholder="PhoneNumber">
+                                </div>
+                            </div>
+                            <small
+                                *ngIf="registerForm.controls['PhoneNumber'].dirty && registerForm.hasError('required','PhoneNumber')"
+                                class="text-danger">*PhoneNumber is required</small>
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <span class="fa fa-lock p-2"></span>
+                                    <input formControlName="Password" [type]="type" placeholder="Password">
+                                    <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
+                                </div>
+                            </div>
+                            <small
+                                *ngIf="registerForm.controls['Password'].dirty && registerForm.hasError('required','Password')"
+                                class="text-danger">*Password is required</small>
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <span class="fa fa-lock p-2"></span>
+                                    <input formControlName="Password" [type]="type" placeholder="Confirm Password">
+                                    <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
+                                </div>
+                            </div>
+                            <small
+                                *ngIf="registerForm.controls['Password'].dirty && registerForm.hasError('required','Password')"
+                                class="text-danger">*Matching Password is required</small>
+                            <div class="form-inline fr mt-4">
+                                <a id="forget" class="font-weight-bold">Forget Password</a>
+                            </div>
+                            <button (click)="onRegister()" type="submit"
+                                class="btn btn-primary btn-block mt-4 w-100">Register</button>
+                            <div class="text-center pt-4" text-muted>Already have have an account?
+                                <a id="forget" routerLink="/login">Login</a>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="mx-3 my-2 py-2 bordert">
+                        <div class="text-center py-3">
+                            <a href="https://instagram.com" target="_blank" class="px-2"><img src=""></a>
+                            <a href="https://instagram.com" target="_blank" class="px-2"><img src=""></a>
+                            <a href="https://instagram.com" target="_blank" class="px-2"><img src=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -3,17 +3,52 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ComponentsComponent } from './components/components.component';
+// import { HelpersComponent } from './helpers/helpers.component';
+import { ServicesComponent } from './services/services.component';
+import { ModelsComponent } from './models/models.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { GuardsComponent } from './guards/guards.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { InterceptorsComponent } from './interceptors/interceptors.component';
+import { ApiserviceComponent } from './apiservice/apiservice.component';
+import { TransactionsComponent } from './transactions/transactions.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+ 
+ 
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ComponentsComponent,
+    // HelpersComponent,
+    ServicesComponent,
+    ModelsComponent,
+    LoginComponent,
+    RegisterComponent,
+    GuardsComponent,
+    DashboardComponent,
+    InterceptorsComponent,
+    ApiserviceComponent,
+    TransactionsComponent,
+    NavbarComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    ServicesComponent, 
+    ApiserviceComponent
   ],
   bootstrap: [AppComponent]
 })
