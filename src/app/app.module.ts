@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import {
+  BrowserModule,
+  provideClientHydration,
+} from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,9 +21,7 @@ import { ApiserviceComponent } from './apiservice/apiservice.component';
 import { TransactionsComponent } from './transactions/transactions.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
- 
- 
-
+import { BalanceSheetComponent } from './components/balance-sheet/balance-sheet.component';
 
 @NgModule({
   declarations: [
@@ -38,18 +39,15 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     TransactionsComponent,
     NavbarComponent,
     SidebarComponent,
+    BalanceSheetComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [
-    provideClientHydration(),
-    ServicesComponent, 
-    ApiserviceComponent
-  ],
-  bootstrap: [AppComponent]
+  providers: [provideClientHydration(), ServicesComponent, ApiserviceComponent],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
