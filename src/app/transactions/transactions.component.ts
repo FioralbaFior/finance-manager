@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ServicesComponent } from '../services/services.component';
 import { ApiserviceComponent } from '../apiservice/apiservice.component';
 import { Router } from '@angular/router';
+import { Transaction } from '../models/transaction.model';
 
 @Component({
   selector: 'app-transactions',
@@ -9,26 +10,36 @@ import { Router } from '@angular/router';
   styleUrl: './transactions.component.css'
 })
 export class TransactionsComponent {
-  public users:any = [];
-  public role!:string;
+  public transactions: Transaction[] = [];
+  public category!: string;
+  totalIncome: number = 0;
+  totalSpent: number = 0;
 
-  public fullName : string = "";
-  constructor(private api : ApiserviceComponent, private auth: ServicesComponent,  private router: Router) { }
+  public fullName: string = "";
+  constructor(private api: ApiserviceComponent, private auth: ServicesComponent, private router: Router) { }
 
-  ngOnInit() {
-    this.api.getUsers()
-    .subscribe(res=>{
-    this.users = res;
+  ngOnInit(): void {
+    // Calculate total income and total spent
+    this.transactions.forEach(transaction => {
+      if (transaction.Amount > 0) {
+        this.totalIncome += transaction.Amount;
+      } else {
+        this.totalSpent += Math.abs(transaction.Amount);
+      }
     });
-
-    
   }
-  signOut(){
+
+  signOut() {
     localStorage.clear();
     this.router.navigate(['login'])
   }
-  
-  logout(){
+
+  logout() {
     this.auth.signOut();
   }
+
+  addTransaction(){
+    
+  }
+
 }

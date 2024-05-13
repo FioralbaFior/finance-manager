@@ -1,0 +1,12 @@
+<div class="container">
+    <h2>Transaction Details</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="transactionId">Transaction ID:</label>
+        <input type="number" class="form-control" id="transactionId" name="transactionId" [(ngModel)]="transactionId">
+      </div>
+      <button type="button" class="btn btn-primary" (click)="editTransaction()">Edit</button>
+      <button type="button" class="btn btn-danger" (click)="deleteTransaction()">Delete</button>
+      <!-- Add other buttons for additional actions -->
+    </form>
+  </div>

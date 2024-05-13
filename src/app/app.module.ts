@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { ComponentsComponent } from './components/components.component';
 // import { HelpersComponent } from './helpers/helpers.component';
 import { ServicesComponent } from './services/services.component';
-import { ModelsComponent } from './models/models.component';
+// import { ModelsComponent } from './models/models.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -22,6 +22,9 @@ import { TransactionsComponent } from './transactions/transactions.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { BalanceSheetComponent } from './components/balance-sheet/balance-sheet.component';
+import { BudgetplansComponent } from './budgetplans/budgetplans.component';
+import { AddtransactionComponent } from './addtransaction/addtransaction.component';
+import { ManagetransactionsComponent } from './managetransactions/managetransactions.component';
 
 @NgModule({
   declarations: [
@@ -29,17 +32,19 @@ import { BalanceSheetComponent } from './components/balance-sheet/balance-sheet.
     ComponentsComponent,
     // HelpersComponent,
     ServicesComponent,
-    ModelsComponent,
     LoginComponent,
     RegisterComponent,
     GuardsComponent,
     DashboardComponent,
-    InterceptorsComponent,
+    // InterceptorsComponent,
     ApiserviceComponent,
     TransactionsComponent,
     NavbarComponent,
     SidebarComponent,
     BalanceSheetComponent,
+    BudgetplansComponent,
+    AddtransactionComponent,
+    ManagetransactionsComponent,
   ],
   imports: [
     BrowserModule,

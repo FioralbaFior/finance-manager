@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { NgModel } from '@angular/forms';
-import { ModelsComponent } from '../models/models.component';
+// import { ModelsComponent } from '../models/models.component';
 import { isPlatformBrowser } from '@angular/common';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
@@ -87,8 +87,8 @@ export class ServicesComponent {
       return this.userPayload.role;
   }
 
-  renewToken(tokenApi: ModelsComponent) {
-    return this.http.post<any>(`${this.baseUrl}refresh`, tokenApi)
-  }
+  // renewToken(tokenApi: ModelsComponent) {
+  //   return this.http.post<any>(`${this.baseUrl}refresh`, tokenApi)
+  // }
 
 }
