@@ -1,0 +1,36 @@
+/* src/app/user-info/user-info.component.css */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+
+}
+
+.title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.user-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.user-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.info-item {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.info-item strong {
+    color: #333;
+}

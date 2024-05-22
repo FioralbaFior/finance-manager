@@ -1,8 +1,9 @@
 import { Component, OnInit} from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ServicesComponent } from '../../services/services.component';
+// import { ServicesComponent } from '../../services/services.component';
 import { Router } from '@angular/router';
 import ValidateForm from '../../helpers/validationform';
+import { AuthService } from '../../services/auth.service';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class RegisterComponent {
   eyeIcon: string = "fa-eye-slash";
   registerForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private auth: ServicesComponent, private router: Router) { }
+  constructor(private fb: FormBuilder, private auth: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
@@ -72,7 +73,4 @@ export class RegisterComponent {
     })
   }
 }
-
-
-
-
+ 

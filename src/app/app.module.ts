@@ -1,58 +1,61 @@
 import { NgModule } from '@angular/core';
-import {
-  BrowserModule,
-  provideClientHydration,
-} from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
+import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ComponentsComponent } from './components/components.component';
-// import { HelpersComponent } from './helpers/helpers.component';
-import { ServicesComponent } from './services/services.component';
-// import { ModelsComponent } from './models/models.component';
+import { AuthService } from './services/auth.service';
+import { UserService } from './services/user-service';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { GuardsComponent } from './guards/guards.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { InterceptorsComponent } from './interceptors/interceptors.component';
-import { ApiserviceComponent } from './apiservice/apiservice.component';
-import { TransactionsComponent } from './transactions/transactions.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { TransactionsComponent } from './components/transactions/transactions.component';
+import { ManageTransactionsComponent } from './components/manage-transactions/manage-transactions.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { BalanceSheetComponent } from './components/balance-sheet/balance-sheet.component';
-import { BudgetplansComponent } from './budgetplans/budgetplans.component';
-import { AddtransactionComponent } from './addtransaction/addtransaction.component';
-import { ManagetransactionsComponent } from './managetransactions/managetransactions.component';
+import { HeaderComponent } from './components/header/header.component';
+import { ProfileComponent } from './components/profile/profile.component';
+ 
+
+
+// import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ComponentsComponent,
-    // HelpersComponent,
-    ServicesComponent,
+    DashboardComponent,
     LoginComponent,
     RegisterComponent,
-    GuardsComponent,
-    DashboardComponent,
-    // InterceptorsComponent,
-    ApiserviceComponent,
     TransactionsComponent,
-    NavbarComponent,
+    ManageTransactionsComponent,
     SidebarComponent,
-    BalanceSheetComponent,
-    BudgetplansComponent,
-    AddtransactionComponent,
-    ManagetransactionsComponent,
+    HeaderComponent,
+    ProfileComponent,
+
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    JwtModule.forRoot({
+      jwtOptionsProvider: {
+        provide: JWT_OPTIONS,
+        useFactory: jwtOptionsFactory,
+      }
+    }),
   ],
-  providers: [provideClientHydration(), ServicesComponent, ApiserviceComponent],
-  bootstrap: [AppComponent],
+  providers: [AuthService, UserService, JwtHelperService],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
+
+export function jwtOptionsFactory() {
+  return {
+    // Configure your JWT options here if needed
+  };
+}

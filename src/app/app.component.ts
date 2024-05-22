@@ -1,21 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'; // Import Router
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent implements OnInit {
+
+export class AppComponent {
   title = 'finance-manager';
 
-  constructor(private router: Router) {}
+  constructor(public authService: AuthService) { }
 
   ngOnInit() {
-    console.log('AppComponent initialized');
-    // const localData = localStorage.getItem('token');
-    // if (!localData) {
-    //   this.router.navigate(['/login']); // Navigate to login
-    // }
-  }
+    this.authService.isLoggedIn()
+  };
+
 }
