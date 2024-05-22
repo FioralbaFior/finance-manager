@@ -6,12 +6,12 @@ import { RegisterComponent } from './components/register/register.component';
 import { TransactionsComponent } from './components/transactions/transactions.component';
 import { ManageTransactionsComponent } from './components/manage-transactions/manage-transactions.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { FinanceReportComponent } from './components/finance-report/finance-report.component';
 // import { TransactionsComponent } from './transactions/transactions.component';
 // import { ManagetransactionsComponent } from './managetransactions/managetransactions.component';
 // import { BudgetplansComponent } from './budgetplans/budgetplans.component';
 // import { SidebarComponent } from './components/sidebar/sidebar.component';
 // import { ProfileComponent } from './components/profile/profile.component';
-
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -20,9 +20,8 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'transactions', component: TransactionsComponent },
   { path: 'managetransactions', component: ManageTransactionsComponent },
-  { path: 'profile', component: ProfileComponent }
-
-
+  { path: 'profile', component: ProfileComponent },
+  { path: 'reports', component: FinanceReportComponent },
 
   // { path: 'profile', component: ProfileComponent }
 ];
@@ -31,6 +30,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {
-
-}
+export class AppRoutingModule {}

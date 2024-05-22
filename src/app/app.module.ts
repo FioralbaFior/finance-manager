@@ -17,6 +17,7 @@ import { ManageTransactionsComponent } from './components/manage-transactions/ma
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { FinanceReportComponent } from './components/finance-report/finance-report.component';
  
 
 
@@ -33,6 +34,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     SidebarComponent,
     HeaderComponent,
     ProfileComponent,
+    FinanceReportComponent,
 
     
   ],
