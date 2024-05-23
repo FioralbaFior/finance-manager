@@ -1,0 +1,71 @@
+.flex-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 15px;
+    background-color: #e8f5e9;
+    /* Light green background */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.flex-item {
+    flex: 1;
+}
+
+.input {
+    padding: 10px;
+    border: 2px solid #66bb6a;
+    /* Green border */
+    border-radius: 4px;
+    font-size: 16px;
+    color: #2e7d32;
+    /* Dark green text color */
+    background-color: #ffffff;
+    /* White background for inputs */
+}
+
+.input::placeholder {
+    color: #a5d6a7;
+    /* Light green placeholder text */
+}
+
+.amount-input {
+    max-width: 150px;
+    width: 100%;
+}
+
+.description-input {
+    flex: 2;
+}
+
+.submit-button {
+    background-color: #66bb6a;
+    /* Green background for button */
+    color: #ffffff;
+    /* White text color */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #57a05c;
+    /* Darker green on hover */
+}
+
+.submit-button[disabled] {
+    background-color: #c8e6c9;
+    /* Lighter green when disabled */
+    cursor: not-allowed;
+}
+
+.submit-button span {
+    display: inline-block;
+    vertical-align: middle;
+    white-space: nowrap;
+}

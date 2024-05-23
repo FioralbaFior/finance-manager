@@ -1,85 +1,63 @@
 .root {
     display: flex;
-    width: 100%;
-    position: relative;
-
-    &:hover {
-        .x-icon-button {
-            opacity: 1;
-            transform: scale(1);
-        }
-    }
-
-    .x-icon-button {
-        position: absolute;
-        height: 34px;
-        width: 34px;
-        border-radius: 50%;
-        background: darkblue;
-        background-repeat: no-repeat;
-        background-position: center;
-        right: -17px;
-        top: -17px;
-
-        transition: opacity 0.2s ease-out, transform 0.2s ease-out;
-
-        transform: scale(0);
-        opacity: 0;
-
-        cursor: pointer;
-
-        &:hover {
-            transform: scale(1.2);
-        }
-    }
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
 }
 
 .budget-item {
     display: flex;
-    width: 100%;
-    background-color: lightgray;
-    padding: 10px;
-    border-radius: 5px;
+    align-items: center;
     cursor: pointer;
-
-    transition: background-color 0.2s ease-out;
-
-    &:hover {
-        background-color: darken(lightgray, 2%);
-    }
-
-    .description {
-        display: flex;
-        flex-grow: 1;
-        font-size: 18px;
-        margin-left: 5px;
-
-        /* // Vertically center the children elements */
-        align-items: center;
-    }
-
-    .amount {
-        padding: 5px;
-        border-radius: 3px;
-    }
+    flex-grow: 1;
 }
 
-.expense {
-    p {
-        color: red;
-    }
-
-    .amount {
-        background-color: lightcoral;
-    }
+.budget-item>.description,
+.budget-item>.amount {
+    padding: 0 10px;
 }
 
-.income {
-    p {
-        color: green;
-    }
+.budget-item>.description p,
+.budget-item>.amount p {
+    margin: 0;
+    font-size: 16px;
+}
 
-    .amount {
-        background-color: lightgreen;
-    }
+.budget-item.income p {
+    color: #4CAF50;
+    /* Green for income */
+}
+
+.budget-item.expense p {
+    color: #F44336;
+    /* Red for expenses */
+}
+
+.x-icon-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    background-color: #dc3545;
+    border-radius: 50%;
+}
+
+.x-icon-button svg {
+    fill: white;
+}
+
+.x-icon-button:hover {
+    background-color: #c82333;
+}
+
+/* Accessibility improvements */
+.x-icon-button:focus {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
 }

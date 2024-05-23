@@ -1,12 +1,24 @@
 <div class="root">
-    <div class="budget-item" (click)="onCardClick()" [ngClass]="{ 'income': item.amount >=0, 'expense': item.amount < 0 }">
-      <div class="description">
-        <p>{{ item.description }}</p>
-      </div>
-      <div class="amount">
-        <p>{{ item.amount }}</p>
-      </div>
+  <div
+    class="budget-item"
+    (click)="onCardClick()"
+    [ngClass]="{ income: item.amount >= 0, expense: item.amount < 0 }"
+  >
+    <div class="description">
+      <p>{{ item.description }}</p>
     </div>
-  
-    <div class="x-icon-button" (click)="onXButtonClick()"></div>
+    <div class="amount">
+      <p>{{ item.amount | currency }}</p>
+    </div>
   </div>
+  <div class="x-icon-button" (click)="onXButtonClick()">
+    <svg width="20" height="20" viewBox="0 0 24 24">
+      <path
+        d="M6 18L18 6M6 6l12 12"
+        stroke="white"
+        stroke-width="2"
+        stroke-linecap="round"
+      />
+    </svg>
+  </div>
+</div>
