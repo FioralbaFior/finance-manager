@@ -47,7 +47,7 @@ export class DashboardComponent implements OnInit {
         console.log(response);
 
         this.username = response.username
-        this.userId = response.UserId;
+        this.userId = response.userId;
         console.log('User ID:', this.userId);
         // Now that you have the user ID, you can make additional requests
         // to fetch other user information using this ID
@@ -65,7 +65,7 @@ export class DashboardComponent implements OnInit {
         console.log(response);
 
         this.balance = response.balance
-        this.userId = response.UserId;
+        this.userId = response.userId;
         console.log('User ID:', this.userId);
         // Now that you have the user ID, you can make additional requests
         // to fetch other user information using this ID

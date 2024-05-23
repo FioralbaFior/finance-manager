@@ -18,7 +18,13 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { FinanceReportComponent } from './components/finance-report/finance-report.component';
- 
+import { AddItemFormComponent } from './components/add-item-form/add-item-form.component';
+import { BudgetItemListComponent } from './components/budget-item-list/budget-item-list.component';
+import { EditItemModalComponent } from './components/edit-item-modal/edit-item-modal.component';
+import { BudgetItemCardComponent } from './components/budget-item-list/budget-item-card/budget-item-card.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { BudgetComponent } from './components/budget/budget.component';
+
 
 
 // import { ProfileComponent } from './components/profile/profile.component';
@@ -35,8 +41,14 @@ import { FinanceReportComponent } from './components/finance-report/finance-repo
     HeaderComponent,
     ProfileComponent,
     FinanceReportComponent,
+    AddItemFormComponent,
+    BudgetItemListComponent,
+    BudgetItemCardComponent,
+    BudgetComponent, 
+    AddItemFormComponent,
+    EditItemModalComponent
 
-    
+
   ],
   imports: [
     BrowserModule,
@@ -51,7 +63,7 @@ import { FinanceReportComponent } from './components/finance-report/finance-repo
       }
     }),
   ],
-  providers: [AuthService, UserService, JwtHelperService],
+  providers: [AuthService, UserService, JwtHelperService, provideAnimationsAsync()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

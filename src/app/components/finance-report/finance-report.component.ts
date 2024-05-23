@@ -9,7 +9,7 @@ import Chart from 'chart.js/auto';
 export class FinanceReportComponent implements OnInit {
   chart: any = [];
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
     this.chart = new Chart('canvas', {
@@ -69,4 +69,5 @@ export class FinanceReportComponent implements OnInit {
       },
     });
   }
+
 }

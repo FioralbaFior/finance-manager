@@ -7,7 +7,7 @@ import { User } from "../models/user-model";
   providedIn: 'root'
 })
 export class UserService {
-  private baseUrl = "http://localhost:5267/Users";
+  private baseUrl = "http://localhost:5267";
   userInfo: any;
 
   constructor(private http: HttpClient) { }
@@ -17,7 +17,7 @@ export class UserService {
     return this.http.get<any>(`${this.baseUrl}/current?token=${token}`);
   }
 
-  getCurrentUserBalance(balance: string): Observable<any>{
+  getCurrentUserBalance(balance: string): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/current?balance=${balance}`)
   }
 
@@ -38,7 +38,7 @@ export class UserService {
     return this.http.get<User[]>(this.baseUrl);
   }
 
-  getUser(): Observable<User>{
+  getUser(): Observable<User> {
     return this.http.get<User>(`${this.baseUrl}/current`)
   }
 

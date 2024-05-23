@@ -52,10 +52,6 @@ export class AuthService {
     return 0
   }
 
-  getUserId(){
-    
-  }
-
   signOut() {
     localStorage.clear();
     this.router.navigate(['login'])

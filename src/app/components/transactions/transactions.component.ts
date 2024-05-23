@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { Transaction } from '../../models/transaction-model';
+import TransactionService from '../../services/transaction-service';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class TransactionsComponent {
   totalSpent: number = 0;
 
   public fullName: string = "";
-  constructor(private auth: AuthService, private router: Router) { }
+  constructor(private auth: AuthService, private router: Router, private transactionService: TransactionService) { }
 
   ngOnInit(): void {
     // Calculate total income and total spent
@@ -29,6 +30,24 @@ export class TransactionsComponent {
     });
   }
 
+  getCurrentTransactions() {
+    var token = localStorage.getItem("token") ?? '';
+    this.transactionService.getCurrentUserTransactions(token).subscribe({
+      next: (response: any) => {
+        console.log(response);
+
+        this.transactions.push(response)
+        console.log(this.transactions)
+        // Now that you have the user ID, you can make additional requests
+        // to fetch other user information using this ID
+      },
+      error: (error: any) => {
+        console.error('Error fetching current user ID:', error);
+      }
+    })
+  }
+
+
   signOut() {
     localStorage.clear();
     this.router.navigate(['login'])
@@ -39,7 +58,7 @@ export class TransactionsComponent {
   }
 
   addTransaction() {
-
+    this.router.navigate(['managetransactions'])
   }
 
 }
