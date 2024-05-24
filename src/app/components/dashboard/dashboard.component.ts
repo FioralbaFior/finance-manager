@@ -6,6 +6,8 @@ import { AuthService } from '../../services/auth.service';
 import { UserService } from '../../services/user-service';
 import { User } from '../../models/user-model';
 // import { ApiserviceComponent } from '../../apiservice/apiservice.component';
+//import { EnterBalanceComponent } from '../enter-balance/enter-balance.component';
+import { BalanceService } from '../../services/balance-service';
 
 
 @Component({
@@ -27,8 +29,14 @@ export class DashboardComponent implements OnInit {
   constructor(
     private api: UserService,
     private auth: AuthService,
-    private router: Router
+    private router: Router,
+    private balanceService: BalanceService
   ) {
+    // Subscribe to balance changes
+    this.balanceService.balance$.subscribe(balance => {
+      this.balance = balance;
+      this.setCircleDasharray();
+    });
   }
 
   ngOnInit() {
@@ -37,6 +45,7 @@ export class DashboardComponent implements OnInit {
     this.api.getUsers().subscribe((res) => {
       this.users = res;
     });
+    
   }
 
   getCurrentUserId() {
@@ -83,6 +92,10 @@ export class DashboardComponent implements OnInit {
 
   logout() {
     this.auth.signOut();
+  }
+
+  enterBalance() {
+    this.router.navigate(['enterBalance']);
   }
 
   private setCircleDasharray() {

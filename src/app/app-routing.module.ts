@@ -8,6 +8,7 @@ import { ManageTransactionsComponent } from './components/manage-transactions/ma
 import { ProfileComponent } from './components/profile/profile.component';
 import { FinanceReportComponent } from './components/finance-report/finance-report.component';
 import { BudgetComponent } from './components/budget/budget.component';
+import { EnterBalanceComponent } from './components/enter-balance/enter-balance.component';
 // import { TransactionsComponent } from './transactions/transactions.component';
 // import { ManagetransactionsComponent } from './managetransactions/managetransactions.component';
 // import { BudgetplansComponent } from './budgetplans/budgetplans.component';
@@ -23,7 +24,8 @@ const routes: Routes = [
   { path: 'managetransactions', component: ManageTransactionsComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'reports', component: FinanceReportComponent },
-  {path: 'budget', component: BudgetComponent}
+  { path: 'budget', component: BudgetComponent },
+  { path: 'enterBalance', component: EnterBalanceComponent }
 
   // { path: 'profile', component: ProfileComponent }
 ];
@@ -32,4 +34,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

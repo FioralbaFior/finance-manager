@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 // import { ServicesComponent } from '../../services/services.component';
 import { Router } from '@angular/router';
@@ -73,4 +73,3 @@ export class RegisterComponent {
     })
   }
 }
- 

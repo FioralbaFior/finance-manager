@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BudgetItem } from '../../models/budget-model';
 import { UpdateEvent } from '../budget-item-list/budget-item-list.component';
+import { BalanceService } from '../../services/balance-service';
 
 @Component({
   selector: 'app-budget',

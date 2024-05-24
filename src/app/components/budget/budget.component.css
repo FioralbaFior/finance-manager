@@ -1,7 +1,7 @@
 .container {
     display: inline-flexbox;
     width: flex;
-    margin-left: 210px;
+    margin-left: 230px;
 }
 
 .top-bar {
@@ -28,7 +28,7 @@ h1 {
 .total-budget-section {
     display: flex;
     height: 250px;
-    background: darkblue;
+    background: rgb(95, 129, 189);
 
     /* // Horizontally and vertically center the text */
     justify-content: center;

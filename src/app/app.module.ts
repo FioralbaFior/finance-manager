@@ -24,6 +24,8 @@ import { EditItemModalComponent } from './components/edit-item-modal/edit-item-m
 import { BudgetItemCardComponent } from './components/budget-item-list/budget-item-card/budget-item-card.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { BudgetComponent } from './components/budget/budget.component';
+import { EnterBalanceComponent } from './components/enter-balance/enter-balance.component';
+//import EnterBalanceComponent from './components/enter-balance/enter-balance.component';
 
 
 
@@ -44,9 +46,11 @@ import { BudgetComponent } from './components/budget/budget.component';
     AddItemFormComponent,
     BudgetItemListComponent,
     BudgetItemCardComponent,
-    BudgetComponent, 
+    BudgetComponent,
     AddItemFormComponent,
-    EditItemModalComponent
+    EditItemModalComponent,
+    EnterBalanceComponent,
+    // EnterBalanceComponent
 
 
   ],
