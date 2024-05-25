@@ -8,7 +8,7 @@ import { User } from "../models/user-model";
 })
 export class UserService {
   private baseUrl = "http://localhost:5267";
-  userInfo: any;
+  //userInfo: any;
 
   constructor(private http: HttpClient) { }
 
@@ -17,9 +17,9 @@ export class UserService {
     return this.http.get<any>(`${this.baseUrl}/current?token=${token}`);
   }
 
-  getCurrentUserBalance(balance: string): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/current?balance=${balance}`)
-  }
+  // getCurrentUserBalance(balance: string): Observable<any> {
+  //   return this.http.get<any>(`${this.baseUrl}/current?balance=${balance}`)
+  // }
 
   // fetchUserInfo(userId: string) {
   //   // Make a request to fetch additional user information using userId
@@ -37,6 +37,8 @@ export class UserService {
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.baseUrl);
   }
+
+
 
   getUser(): Observable<User> {
     return this.http.get<User>(`${this.baseUrl}/current`)

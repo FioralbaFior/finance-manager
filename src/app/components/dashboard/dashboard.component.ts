@@ -33,10 +33,10 @@ export class DashboardComponent implements OnInit {
     private balanceService: BalanceService
   ) {
     // Subscribe to balance changes
-    this.balanceService.balance$.subscribe(balance => {
-      this.balance = balance;
-      this.setCircleDasharray();
-    });
+    // this.balanceService.balance$.subscribe(balance => {
+    //   this.balance = balance;
+    //   this.setCircleDasharray();
+    // });
   }
 
   ngOnInit() {
@@ -45,7 +45,7 @@ export class DashboardComponent implements OnInit {
     this.api.getUsers().subscribe((res) => {
       this.users = res;
     });
-    
+
   }
 
   getCurrentUserId() {
@@ -69,7 +69,7 @@ export class DashboardComponent implements OnInit {
 
   getCurrentUserBalance() {
     var token = localStorage.getItem("token") ?? '';
-    this.api.getCurrentUserBalance(token).subscribe({
+    this.api.getCurrentUserId(token).subscribe({
       next: (response: any) => {
         console.log(response);
 
