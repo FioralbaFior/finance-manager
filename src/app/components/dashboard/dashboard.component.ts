@@ -9,7 +9,6 @@ import { User } from '../../models/user-model';
 //import { EnterBalanceComponent } from '../enter-balance/enter-balance.component';
 import { BalanceService } from '../../services/balance-service';
 
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -20,10 +19,10 @@ export class DashboardComponent implements OnInit {
   public role!: string;
   balance: number = 0;
   circleDasharray: string = '';
-  username: string = ''
-  name: string = ''
-  surname: string = ''
-  email: string = ''
+  username: string = '';
+  name: string = '';
+  surname: string = '';
+  email: string = '';
   userId: string = '';
 
   constructor(
@@ -45,17 +44,15 @@ export class DashboardComponent implements OnInit {
     this.api.getUsers().subscribe((res) => {
       this.users = res;
     });
-
   }
 
   getCurrentUserId() {
-
-    var token = localStorage.getItem("token") ?? '';
+    var token = localStorage.getItem('token') ?? '';
     this.api.getCurrentUserId(token).subscribe({
       next: (response: any) => {
         console.log(response);
 
-        this.username = response.username
+        this.username = response.username;
         this.userId = response.userId;
         console.log('User ID:', this.userId);
         // Now that you have the user ID, you can make additional requests
@@ -63,7 +60,7 @@ export class DashboardComponent implements OnInit {
       },
       error: (error: any) => {
         console.error('Error fetching current user ID:', error);
-      }
+      },
     });
   }
 
@@ -73,7 +70,7 @@ export class DashboardComponent implements OnInit {
       next: (response: any) => {
         console.log(response);
 
-        this.balance = response.balance
+        this.balance = response.balance;
         this.userId = response.userId;
         console.log('User ID:', this.userId);
         // Now that you have the user ID, you can make additional requests
@@ -81,8 +78,8 @@ export class DashboardComponent implements OnInit {
       },
       error: (error: any) => {
         console.error('Error fetching current user ID:', error);
-      }
-    })
+      },
+    });
   }
 
   signOut() {
@@ -95,7 +92,8 @@ export class DashboardComponent implements OnInit {
   }
 
   enterBalance() {
-    this.router.navigate(['enterBalance']);
+    console.log('Enter balance');
+    this.router.navigate(['enterBalance']); // Pass the route as an array of strings
   }
 
   private setCircleDasharray() {
