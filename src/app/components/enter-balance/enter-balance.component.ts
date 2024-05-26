@@ -15,7 +15,7 @@ import { response } from 'express';
 export class EnterBalanceComponent {
   public users: any = [];
   public balance: number = 0;
-  private newBalance: number = 0;
+  //private newBalance: number = 0;
 
   constructor(private router: Router, private balanceService: BalanceService, private api: UserService) { }
 
@@ -32,64 +32,68 @@ export class EnterBalanceComponent {
 
 
   onSubmit(form: NgForm) {
-    var token = localStorage.getItem("token") ?? '';
-    this.api.getCurrentUserId(token).subscribe({
-      next: (response: any) => {
-        console.log(response);
-        console.log(response.balance)
-        this.balance = response.balance
+    const token = localStorage.getItem("token") ?? '';
 
-        if (form.valid) {
-          this.balance += form.value.balance;
-          // this.balanceService.addToBalance(token, form.value.balance)
-          console.log(this.balance)
-          // this.newBalance = this.balance;
-          this.balanceService.updateBalance(token, this.balance).subscribe(response => {
-            console.log('Balance updated:', this.balance);
+    if (form.valid) {
+
+      // Fetch the current balance first
+      this.api.getCurrentUserId(token).subscribe({
+        next: (response: any) => {
+          console.log("Current User Response:", response);
+
+          // Assuming the response has a balance property
+          this.balance = response.balance + form.value.balance;
+          console.log("Updated Balance to Send:", this.balance);
+
+          // Call the balance service to update the balance
+          this.balanceService.updateBalance(token, this.balance).subscribe({
+            next: (updateResponse: any) => {
+              console.log("Update Response:", updateResponse);
+              alert("Balance updated successfully");
+              this.balanceSubmit.emit(this.balance);
+              form.reset();
+              this.router.navigate(['dashboard']);
+            },
+            error: (error: any) => {
+              console.error('Error updating balance:', error);
+              alert("Failed to update balance");
+            }
           });
-          //this.balanceSubmit.emit(balance);
-          //  this.updateBalance(token); // Set the balance in the service
-
-          alert("Worked")
-          form.reset();
-          //this.router.navigate(['dashboard']); // Navigate to the dashboard
+        },
+        error: (error: any) => {
+          console.error('Error fetching current user balance:', error);
         }
-
-
-      },
-      error: (error: any) => {
-        console.error('Error fetching current user ID:', error);
-      }
-    });
+      });
 
 
 
 
 
-    // getCurrentUserBalance() {
-    //   var token = localStorage.getItem("token") ?? '';
-    //   this.api.getCurrentUserBalance(token).subscribe({
-    //     next: (response: any) => {
-    //       console.log(response);
+      // getCurrentUserBalance() {
+      //   var token = localStorage.getItem("token") ?? '';
+      //   this.api.getCurrentUserBalance(token).subscribe({
+      //     next: (response: any) => {
+      //       console.log(response);
 
-    //       this.balance = response.balance
-    //       this.userId = response.userId;
-    //       console.log('User ID:', this.userId);
-    //       // Now that you have the user ID, you can make additional requests
-    //       // to fetch other user information using this ID
-    //     },
-    //     error: (error: any) => {
-    //       console.error('Error fetching current user ID:', error);
-    //     }
-    //   })
+      //       this.balance = response.balance
+      //       this.userId = response.userId;
+      //       console.log('User ID:', this.userId);
+      //       // Now that you have the user ID, you can make additional requests
+      //       // to fetch other user information using this ID
+      //     },
+      //     error: (error: any) => {
+      //       console.error('Error fetching current user ID:', error);
+      //     }
+      //   })
+      // }
+    }
+
+    // updateBalance(token: string) {
+    //   this.balanceService.updateBalance(token, this.newBalance).subscribe(response => {
+    //     console.log('Balance updated:', this.newBalance);
+    //   });
     // }
+
+
   }
-
-  // updateBalance(token: string) {
-  //   this.balanceService.updateBalance(token, this.newBalance).subscribe(response => {
-  //     console.log('Balance updated:', this.newBalance);
-  //   });
-  // }
-
-
 }
